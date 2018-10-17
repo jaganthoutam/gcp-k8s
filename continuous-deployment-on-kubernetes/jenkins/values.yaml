@@ -1,0 +1,22 @@
+Master:
+  InstallPlugins:
+    - kubernetes:1.12.6
+    - workflow-job:2.24
+    - workflow-aggregator:2.5
+    - credentials-binding:1.16
+    - git:3.9.1
+    - google-oauth-plugin:0.6
+    - google-source-plugin:0.3
+  Cpu: "200m"
+  Memory: "256Mi"
+  JavaOpts: "-Xms250m -Xmx250m"
+  ServiceType: ClusterIP
+Agent:
+  Enabled: false
+Persistence:
+  Size: 10Gi
+NetworkPolicy:
+  ApiVersion: networking.k8s.io/v1
+rbac:
+  install: true
+  serviceAccountName: cd-jenkins
